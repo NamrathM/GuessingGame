@@ -16,7 +16,7 @@ const Game = ({Type}) => {
     const [win, setWin] = useState(false);
     const [wait ,setwait]=useState(false);
 
-    console.log(Type);
+
   
     
     const loadData=async()=>{
@@ -86,32 +86,32 @@ const Game = ({Type}) => {
       })
       setWord(guessedwords)
       
-      console.log(guessedwords);
+
       const TFHEremaining=await contract.getchancesleft(token.publicKey);
       const TFHEGameover=await contract.getisGameEnded(token.publicKey);
 
-      setRemaining( Instance.decrypt(contractaddress,TFHEremaining));
-      setGameOver(Boolean( Instance.decrypt(contractaddress,TFHEGameover)));
+      const decreptremaining=Instance.decrypt(contractaddress,TFHEremaining)
+      setRemaining(decreptremaining );
+      const decreptGameover=Boolean( Instance.decrypt(contractaddress,TFHEGameover))
+      setGameOver(decreptGameover);
 
-      setWin(gameOver&&remaining!=0)
-      if(gameOver){
+      setWin(decreptGameover&&decreptremaining!=0)
+      if(decreptGameover){
         const TFHEanswer=await contract.viewanswer(token.publicKey);
         const Answer =TFHEanswer.map((val)=>{
           return String.fromCharCode(96 + Instance.decrypt(contractaddress,val))
         })
-        console.log(Answer);
         setanswer(Answer);
-        console.log(typeof answer);
+
       }
 
-      // const remaining=await instance.decrypt(contractaddress,TFHEremaining)
-      // console.log(remaining);
+
       
     }
     
     useEffect(() => {
       loadData();
-      // resetGame();
+
     }, []);
   
     const resetGame =async () => {
@@ -146,9 +146,8 @@ const Game = ({Type}) => {
         await tx.wait();
         toggleHint();
       }
-      // hint
     }
-    // console.log(gameOver);
+
   
     return (<>{wait?(<>
      <div class="loading-container">
@@ -289,4 +288,4 @@ const Game = ({Type}) => {
     )}</>);
 }
 
-export default Game
+export default Game
