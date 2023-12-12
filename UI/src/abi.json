@@ -1,0 +1,142 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes",
+				"name": "_alphabet",
+				"type": "bytes"
+			}
+		],
+		"name": "Guess",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "Hint",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "chancesleft",
+		"outputs": [
+			{
+				"internalType": "euint8",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "pk",
+				"type": "bytes32"
+			}
+		],
+		"name": "getGussedWord",
+		"outputs": [
+			{
+				"internalType": "bytes[5]",
+				"name": "",
+				"type": "bytes[5]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "pk",
+				"type": "bytes32"
+			}
+		],
+		"name": "getchancesleft",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "pk",
+				"type": "bytes32"
+			}
+		],
+		"name": "getisGameEnded",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "resetgame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "pk",
+				"type": "bytes32"
+			}
+		],
+		"name": "viewanswer",
+		"outputs": [
+			{
+				"internalType": "bytes[5]",
+				"name": "",
+				"type": "bytes[5]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "whitelist",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
