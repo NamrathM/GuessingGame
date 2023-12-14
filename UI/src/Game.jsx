@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-// const ethers = require("ethers");
 import {ethers}  from 'ethers';
 import abi from './abi.json'
 import { createInstance ,initFhevm } from 'fhevmjs';
@@ -20,7 +19,6 @@ const Game = ({Type}) => {
   
     
     const loadData=async()=>{
-      // setWin(true)
       const provider=new ethers.providers.Web3Provider(window.ethereum)
       
       const signer=await provider.getSigner();
@@ -65,7 +63,7 @@ const Game = ({Type}) => {
       }
       const contract=new ethers.Contract(contractaddress,abi,signer)
       setcontract(contract)
-      // console.log(contract);
+
       const {chainId}=await provider.getNetwork()
       const publicKey = await provider.call({
         to: "0x0000000000000000000000000000000000000044",
@@ -152,7 +150,7 @@ const Game = ({Type}) => {
     return (<>{wait?(<>
      <div class="loading-container">
         <div class="loading-svg">
-            {/* <!-- SVG for loading icon --> */}
+
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
                 <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/>
             </svg>
@@ -172,7 +170,7 @@ const Game = ({Type}) => {
       <>
       <h2 style={{marginLeft: 'auto'}}>Mode:{Type}</h2>
 
-      <h1>Guess a Letters in a 5 letter word </h1>
+      <h1>Guess Letters in a 5 letter word </h1>
         <div style={{
             marginBottom: '2rem',
         }}>
@@ -186,19 +184,7 @@ const Game = ({Type}) => {
           }}>{word.map((letter) => letter!=0? String.fromCharCode(96 + letter) : '_').join(' ')}</p>
         </div>
 
-          {/* <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              justifyContent: 'flex-start',
-              marginBottom: '2rem',
-          }}>
-              <h3>Guesses:</h3>
-              <p style={{
-                  fontSize: '2rem',
-                  fontWeight: 'bold',
-              }}>{guesses.join(', ')}</p>
-          </div> */}
+         
         
         <p style={{
               fontSize: '1.25rem',
@@ -288,4 +274,4 @@ const Game = ({Type}) => {
     )}</>);
 }
 
-export default Game
+export default Game
