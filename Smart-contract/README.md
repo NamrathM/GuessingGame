@@ -15,6 +15,7 @@
 **3.Hint() public payable**:
 - Requires a payment of 5 ether to access the hint.
 - Adds the sender address to the whitelist for accessing hint functionality.
+
 **4.Guess(bytes memory _alphabet)**:
 - Takes the guessed letter (alphabet) as an encrypted byte string.
 - Checks if the game is not ended (TFHE.optReq).
@@ -23,18 +24,23 @@
 - Updates the guessed word array with the correct guess (cmux) and marks the corresponding letter positions in GussedWord.
 - Decreases the remaining chances by 1 if the guess is incorrect (cmux).
 - Calls the isEndedcheck function to check if the game should end.
+
 **5.getGussedWord(bytes32 pk)**:
 - Takes the public key (pk) as input.
 - Re-encrypts each letter of the guessed word using the public key and returns the encrypted array.
+
 **6.getchancesleft(bytes32 pk)**:
 - Takes the public key (pk) as input.
 - Re-encrypts the remaining chances using the public key and returns the encrypted value.
+
 **7.getisGameEnded(bytes32 pk)**:
 - Takes the public key (pk) as input.
 - Re-encrypts the game end flag using the public key and returns the encrypted value.
+
 **8.isEndedcheck()**:
 - Checks if all letters of the secret word have been correctly guessed (TFHE.and).
 - Sets the game end flag to true if all letters are guessed or no chances are left (cmux).
+
 **9.resetgame()**:
 - Checks if the game is ended (TFHE.optReq).
 - Generates a new random number using a keccak256 hash and selects a new secret word from the list.
