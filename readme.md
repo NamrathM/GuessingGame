@@ -21,3 +21,6 @@ This project showcases the potential of Zama's TFHE library and for building pri
 - Improve the user interface and gameplay experience.
 - Explore the integration of advanced FHE features, such as multi-party computation.
 - Implement additional game modes and features.
+
+
+
